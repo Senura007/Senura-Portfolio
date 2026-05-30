@@ -236,7 +236,7 @@ export const Projects: React.FC = () => {
         {/* Title */}
         <div className="text-center mb-16">
           <p className="text-xs font-mono tracking-widest text-cyber-teal uppercase mb-3">Complete Project Portfolio</p>
-          <h2 className="text-3xl sm:text-4xl font-extrabold !text-white tracking-tight">Selected Engineering Builds ({projects.length} Items)</h2>
+          <h2 className="text-3xl sm:text-4xl font-extrabold !text-white tracking-tight">Selected Engineering Builds</h2>
           <div className="h-1 w-20 bg-gradient-to-r from-cyber-teal to-cyber-blue mx-auto mt-4 rounded-full" />
         </div>
 
