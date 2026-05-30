@@ -12,7 +12,7 @@ export const Contact: React.FC = () => {
     if (formData.name && formData.email && formData.message) {
       setIsSending(true);
       try {
-        const response = await fetch('https://formsubmit.co/ajax/senuradineth22@gmail.com', {
+        const response = await fetch('https://formsubmit.co/ajax/309ebe93125bfbc5d57691e189c2b6c', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

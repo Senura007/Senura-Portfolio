@@ -229,26 +229,26 @@ export const Projects: React.FC = () => {
   const gridProjects = filteredProjects.filter((p) => !p.image);
 
   return (
-    <section id="projects" className="py-24 bg-cyber-bg relative border-t border-slate-200 tech-grid">
+    <section id="projects" className="py-24 bg-cyber-bg relative border-t border-white/5 tech-grid">
       <div className="absolute inset-0 tech-radial-glow-teal pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Title */}
         <div className="text-center mb-16">
-          <h2 className="text-xs font-mono tracking-widest text-cyber-teal uppercase mb-3">Complete Project Portfolio</h2>
-          <p className="text-3xl sm:text-4xl font-extrabold text-slate-900">Selected Engineering Builds ({projects.length} Items)</p>
+          <p className="text-xs font-mono tracking-widest text-cyber-teal uppercase mb-3">Complete Project Portfolio</p>
+          <h2 className="text-3xl sm:text-4xl font-extrabold !text-white tracking-tight">Selected Engineering Builds ({projects.length} Items)</h2>
           <div className="h-1 w-20 bg-gradient-to-r from-cyber-teal to-cyber-blue mx-auto mt-4 rounded-full" />
         </div>
 
         {/* Filter Widget */}
         <div className="flex justify-center mb-12">
-          <div className="inline-flex p-1.5 rounded-xl bg-white border border-slate-200 shadow-sm">
+          <div className="inline-flex p-1.5 rounded-xl bg-cyber-surface/65 border border-white/5 shadow-2xl backdrop-blur-md">
             <button
               onClick={() => setFilter('all')}
               className={`px-4 py-2 rounded-lg font-mono text-xs font-semibold transition-all duration-300 ${
                 filter === 'all'
-                  ? 'bg-slate-100 text-slate-900 shadow-sm'
-                  : 'text-cyber-text-secondary hover:text-slate-900'
+                  ? 'bg-cyber-blue text-white shadow-lg shadow-cyber-blue/15'
+                  : 'text-cyber-text-secondary hover:text-white'
               }`}
             >
               All Builds
@@ -257,8 +257,8 @@ export const Projects: React.FC = () => {
               onClick={() => setFilter('pro')}
               className={`px-4 py-2 rounded-lg font-mono text-xs font-semibold transition-all duration-300 flex items-center gap-1.5 ${
                 filter === 'pro'
-                  ? 'bg-cyber-blue/10 text-cyber-blue border border-cyber-blue/20'
-                  : 'text-cyber-text-secondary hover:text-cyber-blue'
+                  ? 'bg-cyber-blue/15 text-cyber-blue-light border border-cyber-blue/20'
+                  : 'text-cyber-text-secondary hover:text-cyber-blue-light'
               }`}
             >
               <Code2 className="w-3.5 h-3.5" />
@@ -268,8 +268,8 @@ export const Projects: React.FC = () => {
               onClick={() => setFilter('enterprise')}
               className={`px-4 py-2 rounded-lg font-mono text-xs font-semibold transition-all duration-300 flex items-center gap-1.5 ${
                 filter === 'enterprise'
-                  ? 'bg-cyber-teal/10 text-cyber-teal border border-cyber-teal/20'
-                  : 'text-cyber-text-secondary hover:text-cyber-teal'
+                  ? 'bg-cyber-teal/15 text-cyber-teal-light border border-cyber-teal/20'
+                  : 'text-cyber-text-secondary hover:text-cyber-teal-light'
               }`}
             >
               <Cloud className="w-3.5 h-3.5" />
@@ -279,8 +279,8 @@ export const Projects: React.FC = () => {
               onClick={() => setFilter('support')}
               className={`px-4 py-2 rounded-lg font-mono text-xs font-semibold transition-all duration-300 flex items-center gap-1.5 ${
                 filter === 'support'
-                  ? 'bg-slate-100 text-slate-900 border border-slate-200'
-                  : 'text-cyber-text-secondary hover:text-slate-900'
+                  ? 'bg-white/10 text-white border border-white/10'
+                  : 'text-cyber-text-secondary hover:text-white'
               }`}
             >
               <ShieldCheck className="w-3.5 h-3.5" />
@@ -305,10 +305,10 @@ export const Projects: React.FC = () => {
                   className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch"
                 >
                   {/* Text Details Pane */}
-                  <div className="lg:col-span-6 p-6 sm:p-10 rounded-2xl glass-card border border-slate-200/60 transition-all duration-300 hover:border-cyber-blue/30 flex flex-col justify-between shadow-sm">
+                  <div className="lg:col-span-6 p-6 sm:p-10 rounded-2xl glass-card border border-white/5 transition-all duration-300 hover:border-cyber-blue/30 flex flex-col justify-between shadow-sm">
                     <div className="space-y-6">
                       <div className="flex flex-wrap items-center justify-between gap-3">
-                        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-slate-200 bg-slate-50 text-cyber-text-secondary font-mono text-[9px] uppercase font-bold shadow-inner">
+                        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-cyber-text-secondary font-mono text-[9px] uppercase font-bold shadow-inner">
                           {project.category === 'pro' ? (
                             <Code2 className="w-3.5 h-3.5 text-cyber-blue" />
                           ) : (
@@ -317,7 +317,7 @@ export const Projects: React.FC = () => {
                           <span>{project.company}</span>
                         </div>
                         {project.metric && (
-                          <span className="flex items-center gap-1 font-mono text-[9px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200/60 shadow-sm">
+                          <span className="flex items-center gap-1 font-mono text-[9px] font-bold px-2.5 py-0.5 rounded-full bg-white/5 text-white border border-white/10 shadow-sm">
                             {project.metric.includes('Cost') && <DollarSign className="w-2.5 h-2.5 text-cyber-teal" />}
                             {project.metric.includes('Auditing') && <ShieldCheck className="w-2.5 h-2.5 text-cyber-blue" />}
                             {project.metric}
@@ -326,7 +326,7 @@ export const Projects: React.FC = () => {
                       </div>
 
                       <div>
-                        <h4 className="text-2xl font-extrabold text-slate-900 mb-1.5 tracking-wide">
+                        <h4 className="text-2xl font-extrabold text-white mb-1.5 tracking-wide">
                           {project.name}
                         </h4>
                         <div className="text-xs font-mono text-cyber-blue">{project.role}</div>
@@ -349,7 +349,7 @@ export const Projects: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="mt-8 pt-6 border-t border-slate-200/60 space-y-4">
+                    <div className="mt-8 pt-6 border-t border-white/5 space-y-4">
                       <div className="flex flex-wrap gap-2">
                         {project.tags.map((t) => (
                           <span
@@ -367,7 +367,7 @@ export const Projects: React.FC = () => {
 
                       <div className="flex items-center justify-between text-xs font-mono text-cyber-text-muted">
                         <span>DELIVERABLE</span>
-                        <span className="flex items-center gap-1 hover:text-slate-900 transition-colors cursor-pointer">
+                        <span className="flex items-center gap-1 hover:text-white transition-colors cursor-pointer">
                           Architecture specs <ExternalLink className="w-3.5 h-3.5" />
                         </span>
                       </div>
@@ -375,7 +375,7 @@ export const Projects: React.FC = () => {
                   </div>
 
                   {/* Visual Mockup Pane */}
-                  <div className="lg:col-span-6 rounded-2xl overflow-hidden glass-card border border-slate-200/60 relative flex flex-col justify-center min-h-[300px] lg:min-h-full group shadow-sm">
+                  <div className="lg:col-span-6 rounded-2xl overflow-hidden glass-card border border-white/5 relative flex flex-col justify-center min-h-[300px] lg:min-h-full group shadow-sm">
                     <div className="absolute inset-0 bg-gradient-to-t from-cyber-bg/95 via-transparent to-cyber-bg/10 z-10 pointer-events-none" />
                     <img
                       src={project.image}
@@ -412,22 +412,22 @@ export const Projects: React.FC = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.4 }}
-                    className="p-6 rounded-2xl glass-card border border-slate-200/60 hover:border-slate-300 hover:shadow-md transition-all duration-300 flex flex-col justify-between text-left"
+                    className="p-6 rounded-2xl glass-card border border-white/5 hover:border-white/20 transition-all duration-300 flex flex-col justify-between text-left"
                   >
                     <div className="space-y-5">
                       {/* Card Header */}
                       <div className="flex items-center justify-between">
-                        <div className="p-2.5 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 shrink-0 shadow-sm">
+                        <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-white shrink-0 shadow-sm">
                           {project.icon || <Cpu className="w-5 h-5 text-cyber-teal" />}
                         </div>
-                        <span className="font-mono text-[9px] uppercase px-2 py-0.5 rounded border border-slate-200 bg-slate-50 text-cyber-text-secondary">
+                        <span className="font-mono text-[9px] uppercase px-2 py-0.5 rounded border border-white/10 bg-white/5 text-cyber-text-secondary">
                           {project.company}
                         </span>
                       </div>
 
                       {/* Title & Role */}
                       <div>
-                        <h4 className="text-base font-bold text-slate-900 leading-snug tracking-wide line-clamp-1">
+                        <h4 className="text-base font-bold text-white leading-snug tracking-wide line-clamp-1">
                           {project.name}
                         </h4>
                         <span className="text-[10px] font-mono text-cyber-blue">{project.role}</span>
@@ -450,12 +450,12 @@ export const Projects: React.FC = () => {
                     </div>
 
                     {/* Tags Footer */}
-                    <div className="mt-6 pt-4 border-t border-slate-200/60 space-y-3">
+                    <div className="mt-6 pt-4 border-t border-white/5 space-y-3">
                       <div className="flex flex-wrap gap-1.5">
                         {project.tags.map((t) => (
                           <span
                             key={t}
-                            className="text-[8px] font-mono font-medium px-2 py-0.5 rounded bg-slate-100 text-cyber-text-secondary border border-slate-200/40"
+                            className="text-[8px] font-mono font-medium px-2 py-0.5 rounded bg-white/5 text-cyber-text-secondary border border-white/10"
                           >
                             {t}
                           </span>
