@@ -12,17 +12,19 @@ export const Contact: React.FC = () => {
     if (formData.name && formData.email && formData.message) {
       setIsSending(true);
       try {
-        const response = await fetch('https://formsubmit.co/ajax/309ebe93125bfbc5d57691e189c2b6c', {
+        const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
           },
           body: JSON.stringify({
+            // Get your free access key from https://web3forms.com/
+            access_key: '5a3a2ea9-43bb-44eb-ac5c-dbca59825dfd',
             name: formData.name,
             email: formData.email,
             message: formData.message,
-            _subject: `New Portfolio Message from ${formData.name}`
+            subject: `New Portfolio Message from ${formData.name}`
           })
         });
 
